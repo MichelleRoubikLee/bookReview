@@ -3,6 +3,7 @@ const {Book} = require('../models/book');
 const express = require('express');
 const router = express.Router();
 
+//get all users
 router.get('/', async (req, res) => {
     try {
         const users = await User.find();
@@ -12,11 +13,12 @@ router.get('/', async (req, res) => {
     }
 });
 
+//get user by id
 router.get('/:userId', async (req, res) => {
     try {
-        const user = await User.findById(req.params.id);
+        const user = await User.findById(req.params.userId);
         if (!user)
-        return res.status(400).send(`The user with id "${req.params.id}" does not exist.`);
+        return res.status(400).send(`The user with id "${req.params.userId}" does not exist.`);
         return res.send(user);
     } catch (ex) {
         return res.status(500).send(`Internal Server Error: ${ex}`);
@@ -41,23 +43,32 @@ router.post('/', async (req, res) => {
 });
 
 //add a new review
-router.put('/:userId/newRead', async (req, res) => {
+router.put('/:userId', async (req, res) => {
     try {
-        
-        Book.findOne({_id: req.body.bookRead})
-        .populate('bookRead')
-///continue here****************
+        // const user = User.findOne({_id: req.params.userId})
+        // .populate("bookRead")
+        // user.bookRead;
         const user = await User.findByIdAndUpdate(
-            req.params.id,
-            {
-                bookRead: req.body.bookRead,
-                dateAdded: req.body.date
-            },
+            req.params.userId,
+             {$push:{booksRead: req.body.newRead,timestamp: Date.now()}},
             { new: true }
         );
         if (!user)
             return res.status(400).send(`The user with id "${req.params.id}" does not exist.`);
         await user.save();
+        return res.send(user);
+    } catch (ex) {
+        return res.status(500).send(`Internal Server Error: ${ex}`);
+    }
+});
+
+//get users book reads
+router.get('/:userId/books', async (req, res) => {
+    try {
+        const user = await User.findOne({_id: req.params.userId})
+        .populate('booksRead')
+        if (!user)
+        return res.status(400).send(`The user with id "${req.params.userId}" does not exist.`);
         return res.send(user);
     } catch (ex) {
         return res.status(500).send(`Internal Server Error: ${ex}`);

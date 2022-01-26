@@ -5,12 +5,8 @@ Joi.objectId = require('joi-objectid')(Joi)
 const userSchema = new mongoose.Schema({
     name: {type: String, required: true},
     email: {type: String, required: true},
-    bookRead: [
-        {
-            bookId: {type: mongoose.Types.ObjectId, ref: 'Book'},
-            dateAdded: { type: Date, default: Date.now }
-        }
-    ]
+    booksRead: [{type: mongoose.Types.ObjectId, ref: 'Book'}]
+    
 })
 
 const User = mongoose.model("User", userSchema);
