@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
-Joi.objectId = require('joi-objectid')(Joi)
+const reviewSchema = require('./review')
 
 const userSchema = new mongoose.Schema({
     name: {type: String, required: true},
     email: {type: String, required: true},
-    booksRead: [{type: mongoose.Types.ObjectId, ref: 'Book'}]
+    booksRead: [{type: reviewSchema}]
     
 })
 
@@ -15,7 +15,6 @@ function validateUser(user){
     const schema = Joi.object({
         name: Joi.string().required(),
         email: Joi.string().required()
-        // bookRead: Joi.objectId()
     });
     return schema.validate(user);
 }

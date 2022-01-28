@@ -1,5 +1,4 @@
 const {User,validateUser} = require('../models/user');
-const {Book} = require('../models/book');
 const express = require('express');
 const router = express.Router();
 
@@ -42,15 +41,12 @@ router.post('/', async (req, res) => {
     }
 });
 
-//add a new review
+//add a new book to user list
 router.put('/:userId', async (req, res) => {
     try {
-        // const user = User.findOne({_id: req.params.userId})
-        // .populate("bookRead")
-        // user.bookRead;
         const user = await User.findByIdAndUpdate(
             req.params.userId,
-             {$push:{booksRead: req.body.newRead,timestamp: Date.now()}},
+            {$push:{booksRead: req.body.newRead}},
             { new: true }
         );
         if (!user)
@@ -61,6 +57,7 @@ router.put('/:userId', async (req, res) => {
         return res.status(500).send(`Internal Server Error: ${ex}`);
     }
 });
+
 
 //get users book reads
 router.get('/:userId/books', async (req, res) => {

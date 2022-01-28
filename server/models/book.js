@@ -21,4 +21,3 @@ function validateBook(book){
 
 exports.Book = Book;
 exports.validateBook = validateBook;
-exports.bookSchema = bookSchema;
