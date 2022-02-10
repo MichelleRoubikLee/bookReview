@@ -3,6 +3,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 function NavSearch(props) {
+  
     return ( 
         <nav className="navbar navbar-light bg-light">
           <div className="container-fluid">
