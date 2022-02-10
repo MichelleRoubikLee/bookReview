@@ -2,10 +2,12 @@ const {User} = require('../models/user');
 const {Review, validateReview} = require('../models/review');
 const express = require('express');
 const { Book } = require('../models/book');
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 const router = express.Router();
 
 //add a new review to user 
-router.put('/:userId/:bookId', async (req, res) => {
+router.put('/:userId/:bookId', auth, async (req, res) => {
     try {
         const {error} = validateReview(req.body);
         if (error)

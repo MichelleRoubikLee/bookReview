@@ -6,6 +6,7 @@ const bookSchema = new mongoose.Schema({
     author:{type: String, required: true, minlength: 2, maxlength: 50},
     description:{type: String, required: true, minlength: 2, maxlength: 255},
     dateAdded:{ type: Date, default: Date.now }
+    //add posted by refId
 })
 
 const Book = mongoose.model('Book', bookSchema);

@@ -1,7 +1,11 @@
 const {User,validateUser} = require('../models/user');
 const express = require('express');
-const router = express.Router();
 const bcrypt = require('bcrypt');
+const auth = require('../middleware/auth');
+
+
+
+const router = express.Router();
 
 //get all users
 router.get('/', async (req, res) => {
@@ -36,10 +40,18 @@ router.post('/', async (req, res) => {
         const user = new User({
             name: req.body.name,
             email: req.body.email,
-            password: await bcrypt.hash(req.body.password, salt)
+            password: await bcrypt.hash(req.body.password, salt),
+            isAdmin: req.body.isAdmin
         });
         await user.save();
-        return res.send({_id:user._id, name:user.name,email:user.email });
+
+        const token = user.generateAuthToken();
+
+        return res
+            .header('x-auth-token', token)
+            .header('access-control-expose-headers','x-auth-token')
+            .send({_id:user._id, name:user.name, email:user.email})
+
     } catch (ex) {
         return res.status(500).send(`Internal Server Error: ${ex}`);
     }

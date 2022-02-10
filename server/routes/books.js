@@ -1,5 +1,7 @@
 const {Book,validateBook} = require('../models/book');
 const express = require('express');
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -23,7 +25,7 @@ router.get('/:bookId', async (req, res) => {
 });
 
 //create new book
-router.post('/', async (req, res) => {
+router.post('/', [auth,admin],async (req, res) => {
     try {
         const { error } = validateBook(req.body);
         if (error)
