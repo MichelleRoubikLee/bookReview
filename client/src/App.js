@@ -1,15 +1,20 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import {Routes, Route} from 'react-router-dom';
+
 import NavSearch from "./components/NavSearch";
 import BookViewer from "./components/BookViewer";
-import AddBook from "./components/AddBook"
+import AddBook from "./components/AddBook";
+import Landing from "./components/Landing";
+import Login from "./components/Login";
 
 function App() {
 
   const [books, setBooks] = useState([]);
   const [currentBook, setCurrentBook] = useState();
   const [search, setSearch] = useState("");
+  const [user, setUser] = useState();
 
   useEffect(() => {
     getAllBooks()
@@ -36,22 +41,28 @@ function App() {
   }
 
   return ( 
-      <div className="App">
-        <NavSearch 
-          books={books} 
-          search={search} 
-          handleChange={handleChange} 
+    <div className="App">
+      <NavSearch 
+        books={books} 
+        search={search} 
+        handleChange={handleChange} 
+      />
+      <Routes>
+        <Route exact path="/" element={<Landing/>}/>
+        <Route path="login" element={<Login/>}></Route>
+        <Route path="books" 
+            element={
+            <BookViewer
+              books={books} 
+              search={search}
+              handleClick={handleClick}
+            />
+          }
         />
-        {books.length > 0 ? 
-          <BookViewer 
-            books={books} 
-            search={search}
-            handleClick={handleClick}
-          />
-        :null} 
-
-        <AddBook />
-      </div>
+        <Route path="addBook" element={<AddBook />}/>
+        
+      </Routes>
+    </div>
   );
 }
 
