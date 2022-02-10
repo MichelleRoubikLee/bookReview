@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import NavSearch from "./components/NavSearch";
 import BookViewer from "./components/BookViewer";
-import Details from "./components/Details";
 import AddBook from "./components/AddBook"
 
 function App() {
@@ -50,12 +49,7 @@ function App() {
             handleClick={handleClick}
           />
         :null} 
-        {/* {books.length > 0 ? 
-          <Details 
-            books={books} 
-            currentBook={currentBook}
-          />
-        :null} */}
+
         <AddBook />
       </div>
   );

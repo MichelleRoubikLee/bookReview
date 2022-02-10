@@ -1,6 +1,7 @@
 const {User,validateUser} = require('../models/user');
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
 
 //get all users
 router.get('/', async (req, res) => {
@@ -30,46 +31,32 @@ router.post('/', async (req, res) => {
         const { error } = validateUser(req.body);
         if (error)
             return res.status(400).send(error);
+
+        const salt = await bcrypt.genSalt(10);
         const user = new User({
             name: req.body.name,
-            email: req.body.email
+            email: req.body.email,
+            password: await bcrypt.hash(req.body.password, salt)
         });
         await user.save();
-        return res.send(user);
-    } catch (ex) {
-        return res.status(500).send(`Internal Server Error: ${ex}`);
-    }
-});
-
-//add a new book to user list
-router.put('/:userId', async (req, res) => {
-    try {
-        const user = await User.findByIdAndUpdate(
-            req.params.userId,
-            {$push:{booksRead: req.body.newRead}},
-            { new: true }
-        );
-        if (!user)
-            return res.status(400).send(`The user with id "${req.params.id}" does not exist.`);
-        await user.save();
-        return res.send(user);
+        return res.send({_id:user._id, name:user.name,email:user.email });
     } catch (ex) {
         return res.status(500).send(`Internal Server Error: ${ex}`);
     }
 });
 
 
-//get users book reads
-router.get('/:userId/books', async (req, res) => {
-    try {
-        const user = await User.findOne({_id: req.params.userId})
-        .populate('booksRead')
-        if (!user)
-        return res.status(400).send(`The user with id "${req.params.userId}" does not exist.`);
-        return res.send(user);
-    } catch (ex) {
-        return res.status(500).send(`Internal Server Error: ${ex}`);
-    }
-});
+//get users reviews for refId
+// router.get('/:userId/books', async (req, res) => {
+//     try {
+//         const user = await User.findOne({_id: req.params.userId})
+//         .populate('bookReviews')
+//         if (!user)
+//         return res.status(400).send(`The user with id "${req.params.userId}" does not exist.`);
+//         return res.send(user);
+//     } catch (ex) {
+//         return res.status(500).send(`Internal Server Error: ${ex}`);
+//     }
+// });
 
 module.exports = router;

@@ -3,21 +3,25 @@ import React from 'react';
 function Details(props) {
     return ( 
         <div>
-            <div className="offcanvas offcanvas-bottom" data-bs-scroll="true" data-bs-backdrop="false" tabIndex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-                <div className="offcanvas-header">
-                    <h5 className="offcanvas-title" id="offcanvasScrollingLabel">Details</h5>
-                    <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div className="offcanvas-body">
-                    <div className="row">
-                        <div className="col">
-                            <img src="https://source.unsplash.com/bsLXJsucvxc" className="card-img-top" alt="album art" />
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+            </button>
+
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="exampleModalLabel">{props.book.title}</h5>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div className="col">
-                            <h1>{props.books[props.currentBook].title}</h1>
+                        <div className="modal-body">
+                            <div>Author: {props.book.author}</div>
+                            <div>Description: {props.book.description}</div>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>
