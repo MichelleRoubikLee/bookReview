@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 function Landing(props) {
     return ( 
-        <div>
+        <div className='content'>
             <h1>Landing Page</h1>
             <Link to='/register'>
                 <button className="btn btn-info">Register</button>

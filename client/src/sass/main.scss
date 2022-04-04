@@ -1,0 +1,96 @@
+$color-primary:#43a03a;
+$color-primary-dark: #2d6927;
+$color-primary-light: #83ca7d;
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+  font-size: 10px;
+}
+
+
+/* Fira Sans */
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
+.container {
+  width: 100%;
+  display: inline-block;
+}
+
+/** HEADER */
+
+/** NAVIGATION BAR */
+nav {
+  grid-area: header;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  ul {
+    text-align: center;
+    list-style-type: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 15px;
+    li {
+      display: inline;
+      font-family: "Fira Sans", sans-serif;
+      font-size: 17px;
+      a {
+        color: #f2f2f2;
+        text-decoration: none;
+        padding: 14px;
+        &:hover {
+          background-color: #111;
+        }
+      }
+    }
+  }
+}
+
+
+
+.navigation{
+  grid-area: header;
+}
+.content {
+  grid-area: main;
+}
+
+.App{
+  display: grid;
+  grid-template-columns: 33vw 33vw 33vw;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header header header"
+    "main main main";
+}
+
+.book_card {
+  width: 20rem;
+  padding: 0.2rem;
+  margin: 1rem;
+  border: 0.5rem solid rgba(0, 0, 0, 0.125);
+}
+
+.book_card:hover {
+  border: 0.5rem solid rgba($color-primary, 0.125);
+  background-color: rgba($color-primary-dark, 0.125);
+}
+
+.card-text {
+  margin-bottom: 0;
+}
+
+.book_row {
+  padding: 1rem;
+}
+
+

@@ -20,7 +20,7 @@ function Login() {
 
 
     return ( 
-        <form onSubmit = {handleSubmit}>
+        <form className='content' onSubmit = {handleSubmit}>
             <div className="mb-3">
                 <label className="form-label">Email address</label>
                 <input 

@@ -4,6 +4,7 @@ Joi.objectId = require('joi-objectid')(Joi)
 
 const reviewSchema = new mongoose.Schema({
     bookId : {type: mongoose.Types.ObjectId, ref: 'Book'},
+    userId : {type: mongoose.Types.ObjectId, ref: 'User'},
     stars: {type: Number, required: true, min: [1, "must be one or greater"], max: [5, "must be five or less"]},
     text: {type: String, maxlength: 500},
     dateReviewed: { type: Date, default: Date.now }

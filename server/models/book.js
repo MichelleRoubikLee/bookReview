@@ -6,7 +6,7 @@ const bookSchema = new mongoose.Schema({
     author:{type: String, required: true, minlength: 2, maxlength: 50},
     description:{type: String, required: true, minlength: 2, maxlength: 255},
     dateAdded:{ type: Date, default: Date.now },
-    reviewRef: { type: Schema.Types.ObjectId, ref: 'Review'}
+    reviewRef: { type: mongoose.Types.ObjectId, ref: 'Review'}
     //add posted by refId
 })
 

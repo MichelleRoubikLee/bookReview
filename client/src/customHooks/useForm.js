@@ -1,7 +1,10 @@
 import {useState} from 'react';
 
 const useForm = (callback) => {
-    const [values,setValues] = useState({});
+    const [values,setValues] = useState({
+        email:"michelle@dcc.com",
+        password: "michelleisawesome"
+    });
 
     const handleChange = (event) => {
         event.persist();
