@@ -21,18 +21,37 @@ html {
 .container {
   width: 100%;
   display: inline-block;
+  grid-area: header;
 }
+
+.content {
+  grid-area: main;
+}
+
+.App{
+  display: grid;
+  grid-template-columns: 33vw 33vw 33vw;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header header header"
+    "main main main";
+}
+
 
 /** HEADER */
 
 /** NAVIGATION BAR */
 nav {
-  grid-area: header;
   overflow: hidden;
   background-color: #333;
-  position: fixed;
+  position: float;
   top: 0;
   width: 100%;
+  &::after{
+    content: "";
+    clear: both;
+    distplay: table;
+  }
   ul {
     text-align: center;
     list-style-type: none;
@@ -57,21 +76,8 @@ nav {
 
 
 
-.navigation{
-  grid-area: header;
-}
-.content {
-  grid-area: main;
-}
 
-.App{
-  display: grid;
-  grid-template-columns: 33vw 33vw 33vw;
-  grid-template-rows: auto;
-  grid-template-areas: 
-    "header header header"
-    "main main main";
-}
+
 
 .book_card {
   width: 20rem;
