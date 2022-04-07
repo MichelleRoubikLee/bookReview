@@ -10,6 +10,7 @@ import AddBook from "./components/AddBook";
 import Landing from "./components/Landing";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import SideBar from "./components/SideBar";
 
 function App() {
 
@@ -49,6 +50,12 @@ function App() {
         search={search} 
         handleChange={handleChange} 
       />
+
+      <SideBar/>
+
+      <div className='content'>
+
+      
       <Routes>
         <Route exact path="/" element={<Landing/>}/>
         <Route path="login" element={<Login/>}></Route>
@@ -65,6 +72,7 @@ function App() {
         <Route path="addBook" element={<AddBook />}/>
         
       </Routes>
+      </div>
     </div>
   );
 }

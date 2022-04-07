@@ -24,8 +24,8 @@ function NavSearch(props) {
                   <a>Add Book</a>
                 </Link>
               </li>
-              <li>
-                <form className="d-flex">
+              <li className="navigation-bar__search">
+                <form >
                   <input 
                     name="search" 
                     className="form-control me-2" 

@@ -1,5 +1,5 @@
 $color-primary:#43a03a;
-$color-primary-dark: #2d6927;
+$color-primary-dark: #122411;
 $color-primary-light: #83ca7d;
 
 *,
@@ -26,6 +26,7 @@ html {
 
 .content {
   grid-area: main;
+  
 }
 
 .App{
@@ -34,7 +35,8 @@ html {
   grid-template-rows: auto;
   grid-template-areas: 
     "header header header"
-    "main main main";
+    "sidebar main main"
+    "sidebar main main";
 }
 
 
@@ -42,17 +44,19 @@ html {
 
 /** NAVIGATION BAR */
 nav {
-  overflow: hidden;
-  background-color: #333;
-  position: float;
+  //overflow: hidden;
+  background-color: $color-primary-dark;
   top: 0;
   width: 100%;
+  
   &::after{
     content: "";
     clear: both;
     distplay: table;
   }
   ul {
+    display: flex;
+    justify-content: space-around;
     text-align: center;
     list-style-type: none;
     list-style-type: none;
@@ -67,7 +71,7 @@ nav {
         text-decoration: none;
         padding: 14px;
         &:hover {
-          background-color: #111;
+          background-color: $color-primary;
         }
       }
     }
@@ -75,7 +79,9 @@ nav {
 }
 
 
-
+.navigation-bar__search{
+  flex-grow: 2;
+}
 
 
 
