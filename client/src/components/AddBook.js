@@ -21,38 +21,37 @@ function AddBook(props) {
 
 
     return ( 
-        <form onSubmit = {handleSubmit} >
-            <div className = "mb-3" >
-                <label className = "form-label" > Title </label> 
-                <input 
-                    type = "title"
-                    className = "form-control"
-                    name = "title"
-                    onChange = {handleChange}
-                    defaultValue = {values.title}
-                    required = {true}
-                /> 
-            </div> 
-            <div className = "mb-3" >
-                <label className = "form-label" > Author </label> 
-                <input type = "author"
-                    className = "form-control"
-                    name = "author"
-                    onChange = {handleChange}
-                    defaultValue = {values.author}
-                    required = {true}
-                /> 
-            </div> 
-            <div className = "mb-3" >
-                <label className = "form-label" > Description </label> 
-                <input type = "description"
-                    className = "form-control"
-                    name = "description"
-                    onChange = {handleChange}
-                    defaultValue = {values.description}
-                    required = {true}
-                /> 
-            </div> 
+        <form className = "addBook" onSubmit = {handleSubmit} >
+            <label className = "addBook__label" > Title: </label> 
+            <input 
+                type = "title"
+                className = "addBook__input"
+                name = "title"
+                onChange = {handleChange}
+                defaultValue = {values.title}
+                required = {true}
+            /> 
+        
+        
+            <label className = "addBook__label" > Author: </label> 
+            <input type = "author"
+                className = "addBook__input"
+                name = "author"
+                onChange = {handleChange}
+                defaultValue = {values.author}
+                required = {true}
+            /> 
+        
+        
+            <label className = "addBook__label" > Description: </label> 
+            <input type = "description"
+                className = "addBook__input"
+                name = "description"
+                onChange = {handleChange}
+                defaultValue = {values.description}
+                required = {true}
+            /> 
+         
         <button type = "submit" className = "btn btn-primary" > Submit </button> 
     </form>
     );

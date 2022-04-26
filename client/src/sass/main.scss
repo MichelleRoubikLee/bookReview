@@ -156,3 +156,18 @@ nav {
   }
 
 }
+
+.addBook{
+  display: grid;
+  justify-content: center;
+  &__title{
+
+  }
+  &__label{
+    font-size: 1.7rem;
+    margin-right: .5rem;
+  }
+  &__input{
+    font-size: 1.7rem;
+  }
+}
