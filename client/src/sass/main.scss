@@ -13,6 +13,12 @@ $color-secondary: #f0ffed;
 
 html {
   font-size: 10px;
+  font-family: "Fira Sans", sans-serif;
+}
+
+h1,h2,h3{
+  font-size: 2rem;
+  
 }
 
 a{
@@ -27,6 +33,7 @@ a{
   width: 100%;
   grid-area: header;
   background-color: $color-primary-dark;
+  font-size: 2rem;
 }
 
 .content {
@@ -35,6 +42,7 @@ a{
   min-height: 100vh;
   background-color: $color-primary-light;
   padding: 1rem;
+  font-size: 2rem;
 }
 
 .sidebar{
@@ -43,6 +51,7 @@ a{
   min-height: 100vh;
   background-color: $color-secondary;
   padding: 1rem;
+  font-size: 2rem;
   &__items{
     padding-left:1rem;
   }
@@ -76,20 +85,16 @@ nav {
   &::after{
     content: "";
     clear: both;
-    distplay: table;
   }
   ul {
     display: flex;
     justify-content: space-around;
     text-align: center;
     list-style-type: none;
-    list-style-type: none;
     margin: 0;
     padding: .5rem 1rem;
 
     li {
-      font-family: "Fira Sans", sans-serif;
-      font-size: 17px;
       justify-content: space-around;
       
       a {
@@ -138,8 +143,7 @@ nav {
     padding: .3rem;
     margin: 1rem;
     border-radius: 1rem;
-    font-family: "Fira Sans", sans-serif;
-    font-size: 17px;
+
     justify-content: space-around;
     
   &__landing{
@@ -164,10 +168,10 @@ nav {
 
   }
   &__label{
-    font-size: 1.7rem;
+
     margin-right: .5rem;
   }
   &__input{
-    font-size: 1.7rem;
+
   }
 }
