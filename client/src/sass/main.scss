@@ -1,6 +1,7 @@
 $color-primary:#43a03a;
 $color-primary-dark: #122411;
 $color-primary-light: #83ca7d;
+$color-secondary: #f0ffed;
 
 *,
 *::after,
@@ -30,17 +31,26 @@ a{
 
 .content {
   grid-area: main;
+  width: 100%;
+  min-height: 100vh;
   background-color: $color-primary-light;
+  padding: 1rem;
 }
 
 .sidebar{
   grid-area: sidebar;
-  background-color: aqua;
+  width: 100%;
+  min-height: 100vh;
+  background-color: $color-secondary;
+  padding: 1rem;
+  &__items{
+    padding-left:1rem;
+  }
 }
 
 .App{
   display: grid;
-  grid-template-columns: 33vw 33vw 33vw;
+  grid-template-columns: 15vw 42.5vw 42.5vw;
   grid-template-rows: auto;
   grid-template-areas: 
     "header header header"
