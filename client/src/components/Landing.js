@@ -7,10 +7,10 @@ function Landing(props) {
         <>
             <h1>Landing Page</h1>
             <Link to='/register'>
-                <button className="btn btn-info">Register</button>
+                <button className="btn btn__landing">Register</button>
             </Link>
             <Link to='/login'>
-                <button className="btn btn-success">Login</button>
+                <button className="btn btn__landing">Login</button>
             </Link>
         </>
     );

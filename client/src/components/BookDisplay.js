@@ -12,7 +12,7 @@ function BookDisplay(props){
                 <div className='card-body'>
                     <h5 className='card-title book_title'>{props.book.title}</h5> 
                     <p className='card-text'>Author: {props.book.author}</p>
-                    <button>Want to Read</button>
+                    <button className='btn'>Want to Read</button>
                     <Details handleClick={props.handleClick} book={props.book}/>
                 </div>
             </div>

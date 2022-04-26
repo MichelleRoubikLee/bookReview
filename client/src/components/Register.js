@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useForm from '../customHooks/useForm';
 import jwtDecode from 'jwt-decode';
+import {Link} from 'react-router-dom';
+
 
 
 function Register() {
@@ -68,6 +70,9 @@ function Register() {
             </div>
             
             <button type="submit" className="btn btn-primary">Submit</button>
+            <Link to='/login'>
+              <a>Login</a>
+            </Link>
         </form>
     );
 }

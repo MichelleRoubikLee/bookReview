@@ -14,19 +14,28 @@ html {
   font-size: 10px;
 }
 
+a{
+  text-decoration: none;
+}
 
 /* Fira Sans */
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 
-.container {
+
+.nav-bar__container {
   width: 100%;
-  display: inline-block;
   grid-area: header;
+  background-color: $color-primary-dark;
 }
 
 .content {
   grid-area: main;
-  
+  background-color: $color-primary-light;
+}
+
+.sidebar{
+  grid-area: sidebar;
+  background-color: aqua;
 }
 
 .App{
@@ -37,18 +46,23 @@ html {
     "header header header"
     "sidebar main main"
     "sidebar main main";
+  justify-items: center;
 }
 
 
-/** HEADER */
+.nav-bar__form{
+  display:flex;
+  align-items: center;
+}
 
-/** NAVIGATION BAR */
+
 nav {
-  //overflow: hidden;
-  background-color: $color-primary-dark;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
   top: 0;
-  width: 100%;
-  
+  width: 100vh;
+  padding: 1rem;
   &::after{
     content: "";
     clear: both;
@@ -61,17 +75,22 @@ nav {
     list-style-type: none;
     list-style-type: none;
     margin: 0;
-    padding: 15px;
+    padding: .5rem 1rem;
+
     li {
-      display: inline;
       font-family: "Fira Sans", sans-serif;
       font-size: 17px;
+      justify-content: space-around;
+      
       a {
         color: #f2f2f2;
         text-decoration: none;
-        padding: 14px;
+        border-radius: 1rem;
+        padding: .5rem;
+        align-self: center;
         &:hover {
-          background-color: $color-primary;
+          background-color: $color-primary-light;
+          color:black;
         }
       }
     }
@@ -79,9 +98,7 @@ nav {
 }
 
 
-.navigation-bar__search{
-  flex-grow: 2;
-}
+
 
 
 
@@ -106,3 +123,26 @@ nav {
 }
 
 
+.btn{
+    min-width: 8rem;
+    padding: .3rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 17px;
+    justify-content: space-around;
+    
+  &__landing{
+    display: block;
+    background-color: $color-primary-dark;
+    color: white;
+    &:hover{
+      background-color:$color-primary-light;
+      color: black;
+    }
+  }
+  &__navsearch{
+    background-color: #f2f2f2;
+  }
+
+}

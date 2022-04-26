@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useForm from '../customHooks/useForm';
+import {Link} from 'react-router-dom';
 
 
 function Login() {
@@ -46,6 +47,9 @@ function Login() {
                 />
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
+            <Link to='/register'>
+              <a>Register</a>
+            </Link>
         </form>
     );
 }
