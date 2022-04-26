@@ -28,7 +28,7 @@ function NavSearch(props) {
             <form className="nav-bar__form">
               <input 
                 name="search" 
-                className="" 
+                className="nav-bar__form--input" 
                 type="search" 
                 placeholder="Search" 
                 aria-label="Search" 

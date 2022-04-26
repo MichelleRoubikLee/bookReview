@@ -16,10 +16,6 @@ html {
   font-family: "Fira Sans", sans-serif;
 }
 
-h1,h2,h3{
-  font-size: 2rem;
-  
-}
 
 a{
   text-decoration: none;
@@ -59,7 +55,7 @@ a{
 
 .App{
   display: grid;
-  grid-template-columns: 15vw 42.5vw 42.5vw;
+  grid-template-columns: 20rem 2fr 2fr;
   grid-template-rows: auto;
   grid-template-areas: 
     "header header header"
@@ -72,6 +68,9 @@ a{
 .nav-bar__form{
   display:flex;
   align-items: center;
+  &--input{
+    font-size: 2rem;
+  }
 }
 
 
@@ -143,7 +142,7 @@ nav {
     padding: .3rem;
     margin: 1rem;
     border-radius: 1rem;
-
+    font-size: 1.7rem;
     justify-content: space-around;
     
   &__landing{
@@ -172,6 +171,6 @@ nav {
     margin-right: .5rem;
   }
   &__input{
-
+    font-size: 2rem;
   }
 }
